@@ -4,20 +4,22 @@
 SOURCES = $(wildcard src/*.cpp)
 OBJECTS = $(addprefix obj/,$(notdir $(SOURCES:.cpp=.o)))
 
-CXX = g++-3
-CXXOPTS = -mno-cygwin -mwin32 -g
+CXX = g++
+CXXOPTS =
 CXXDEFS = -DFREEGLUT_STATIC -DGLEW_STATIC
 CXXINCS = -Iinclude
 CXXFLAGS = $(CXXOPTS) $(CXXDEFS) $(CXXINCS)
 
 LDOPTS =
 LDDIRS = -Llib
-LDLIBS = -lfreeglut -lglew32 -lopengl32 -lgdi32 -lwinmm
+LDLIBS = -lglut -lGLU -lGL -lGLEW
 LDFLAGS = $(LDOPTS) $(LDDIRS) $(LDLIBS)
 
 #---------------------------------------------------------------------------
 
-rubiks: $(OBJECTS)
+all: rubiks.out
+
+rubiks.out: $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
 obj/%.o: src/%.cpp 
@@ -26,5 +28,5 @@ obj/%.o: src/%.cpp
 #---------------------------------------------------------------------------
 
 clean:
-	find . \( -name '*.exe' -or -name '*.o' \) -delete
+	find . \( -name '*.out' -or -name '*.o' \) -delete
 

@@ -3,9 +3,9 @@ OpenGL Rubik's Cube
 
 #Requirements
 
-* Cygwin (Makefile written with Cygwin in mind, but the code itself should 
-	theoretically work on any OS)
 * OpenGL 3.2
+* GLEW
+* GLUT
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

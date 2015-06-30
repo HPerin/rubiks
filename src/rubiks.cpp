@@ -2,6 +2,7 @@
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
+#include <cerrno>
 #include "rubiks.h"
 
 GLuint vao, vbo, ibo;
@@ -126,10 +127,10 @@ void keyboard(unsigned char key, int x, int y) {
 		exit(EXIT_SUCCESS);
 		break;
 	case 'w': // Write
-		saveState("savestate.rubiks");
+		saveState((char*) "savestate.rubiks");
 		break;
 	case 'e': // Edit
-		loadState("savestate.rubiks");
+		loadState((char*) "savestate.rubiks");
 		break;
 	case 'r': // Reset
 		resetRotationMatrix();

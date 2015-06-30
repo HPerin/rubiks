@@ -1,6 +1,7 @@
 #include <Angel.h>
 #include <iostream>
 #include <cstdlib>
+#include <cstring>
 #include "rubiks.h"
 
 int lastRotationAxis, lastRotationWasClockwise;
